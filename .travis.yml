@@ -3,10 +3,23 @@ os: linux
 language: bash
 
 addon:
- apt:
-  packages:
-   - rpm2cpio
-   - cpio
+  apt:
+    packages:
+      - rpm2cpio
+      - cpio
 
 script:
-    - bash hdp_extract.bash
+  - bash hdp_extract.bash
+
+deploy:
+  provider: releases
+  api_key:
+    secure: el0mTBigZz2MfIC4i1o+Z4vtzj3Rmy4xdGVizMLyjbC5dg+9f34DfBA/byrFktjERfOLbqhEllWVH122O0B9/jnnxL2t3gMdpTMDQUAitSP+7Pq6mWBVDbNAbvM9OaEb94aLMgjgMELM9wdKTqv4TZ+b+WVnG/d1oNYVBMkifpY/k9Dn0V1th2zr9VGUDD1Tb51SiWouqR9Y5ZR+Drce8E1gMzs6TfNRKXfRkFxBR+IOdU2ue4xF2U+IcEzE25BZntG1fN0j6xfwBm5Tm+9eonq33hFTc4Pafz+x6iOacFrfsAzRkaahXEF58r1CDPu57T+ZqrYcKN8rEPlEaWA5DuX7Rm8bfW1ZHwX735DWpRgCKu6KG5vJ1yRzPBOLH4ek0I8KQCQoL1Vs0gsmQ4Rrz0VBPpJJ3J2ZW5dX/Xg1yAKBWpJp3uyN1oo4d5w/RK+gfpfn9wwlzJ8LwohWc4XmxbQZ3v8tPLevIygvrxFsbMvM1zxYyVWRkFOK5RVY6L1vi0JaCtNjj6jFMV9fHVoEL8d3LWKnpNzlqLufnSeM6jFLgyQd2AoTTzREdfB4XaDk4YeVlOQ46agyUh6Il/i9nHWGUMx0IhiFTEP7uM3hHlSZmuG9AtSiHc2y/B7y+FiROEdukg6YVqslA4NuQaYbn3py+FQhJHSEdviYCyz9nHU=
+  file_glob: true
+  file:
+    - out/*
+  on:
+    repo: amitsadaphule/HDP-ppc64le-bin-factory
+    tags: true
+  skip_cleanup: 'true'
+
