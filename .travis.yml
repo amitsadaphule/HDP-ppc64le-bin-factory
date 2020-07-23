@@ -1,0 +1,12 @@
+arch: amd64
+os: linux
+language: bash
+
+addon:
+ apt:
+  packages:
+   - rpm2cpio
+   - cpio
+
+script:
+    - bash hdp_extract.bash
