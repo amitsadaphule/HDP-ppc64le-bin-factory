@@ -11,6 +11,9 @@ addon:
 script:
   - bash hdp_extract.bash
 
+after_success:
+  - bash push.bash
+
 deploy:
   provider: releases
   api_key:
@@ -23,3 +26,6 @@ deploy:
     tags: true
   skip_cleanup: 'true'
 
+env:
+  global:
+    secure: LBw5GdXx1thdXhk1U0vXS9ZF8MXWyb+/F3fTCM+D3ecD7ri+mXsRUZW+wuoCPYfzcSLuvyR/zrUdV+CPXRU3T0Cm638VMkCo1Up1YF2Zm9hnnBcElu/azxP0qcn58S1VIq0mBiVruXahuhBRQgb2ssCyBsZrXJhcATDKQ/Qpu9E1lYu5nyAsiMZoEVA0Sdi4xdfIdHGc0MJ3MocPlcC1whULZPfZE27LBoAOxXG6HuCfVnqh5PRzz2h58d54G5S0qAufRnpJ6kMfLeH0EJsi5jv7HkgLjwlVz5rqDR0QRzJwTzRT2OyVvjTcM80FXxXAid76YPbhxIWyEHiT9IIzkYfInq+/yCRrloNnnSGdMLDNLO0vGKplIoaOVVAWHRwFjRgQiCROkr6eAnAI7hxFwwh5BLqgJo1oGK3D63ZgH02ngtueVVkCrqENPFhakuavQ0hqI3ZqXjeFnSixd1eFZ79NLb3H8UHx+adqMM4G0l99voyfVtVbbNLShs++/QOX15P4NJcUjyBnVzuYUP562itZubof4lOgZQRYnrC18nwAeGlrO2uDKubwldJjzaUQ4J5QtQUKJjuQxWL/J3JIDqg0Li1H6MQYeMC5f1hgERuvP98dn2S32MLdX/CcWBISxkrMvhcB9l+fhYxdwA647dS2mBiBF0LLwX/V22pcFIQ=
